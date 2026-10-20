@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=bu, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button type="button" id="mensaje" >Mensaje</button>
+  <input type="text" id="caja">
+  <script>
+    //Propiedad  : carateristicas objetos ( nombre ,ubicacion , color)
+    //Metodo     : acciones (verbo infinitivos)
+    //Evento     : respuesta 
+
+    //E1         :Al cargar la pagina
+    //DOM        :contenido de la pagina | Documento object model
+    document.addEventListener("DOMContentLoaded", function (){
+        console.log("DOM fue cargado completamente ...")
+
+        const boton = document.getElementById("mensaje")
+        //E2: Clic (pulsar el botón)
+        boton.addEventListener("click", function (){
+          console.log("Hola mundo desde js")
+        })
+
+
+        //¿Qué significa addEventListener?
+        //agregar evento de escucha/atención
+        //E3 : focus (enfoque)
+        const contenido = document.getElementById("caja")
+        contenido.addEventListener("focus",function(){
+          console.log("Elemento activo la caja")
+
+        })
+    })
+
+
+  </script>
+
+
+</body>
+</html>

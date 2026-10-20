@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="conteiner">
+    <h1>Solicitud de cotizacion</h1>
+    <p>Completa los datos para la cotizacion</p>
+  </div>
+
+  <form id="formulario">
+
+    <div>
+      <label for="nombres">Nombre Completo</label>
+      <input type="text" id="nombres" required>
+    </div>
+
+    <div>
+      <label for="email">Correo electronico</label>
+      <input type="email" id="email" required>
+    </div>
+
+    <div>
+      <label for="fechanac">Fecha nacimiento</label>
+      <input type="date" id="fechanac" required>
+    </div>
+
+
+
+    <div>
+      <label for="telefono">Telefono</label>
+      <input type="tel" id="telefono" required>
+    </div>
+
+
+
+    <label for="uso">tipo de computadora</label>
+    <div>
+      <select id="uso" required>
+        <option value="">Selecione el uso</option>
+        <option value="1">Pc de Escritorio</option>
+        <option value="2">portatil</option>
+      </select>
+    </div>
+
+    <label for="uso"> Uso de la computadora </label>
+    <select id="uso" required>
+      <option value="">Selecione el uso</option>
+      <option value="1">Estudios</option>
+      <option value="2">Oficina</option>
+      <option value="3">Videojuegos</option>
+      <option value="4">Diseño Grafico</option>
+
+    </select>
+
+<div></div>
+  <label for="presupuesto">Presupuesto aproximado (S/) *</label>
+        <input type="number" id="presupuesto" min="1"
+               placeholder="Ejemplo: 2500" required>
+<div>
+        <label for="marca">Marca preferida (opcional)</label>
+        <select id="marca">
+            <option value="">Sin preferencia</option>
+            <option value="HP">HP</option>
+            <option value="Lenovo">Lenovo</option>
+            <option value="ASUS">ASUS</option>
+            <option value="Acer">Acer</option>
+            <option value="MSI">MSI</option>
+            <option value="Otra">Otra</option>
+        </select>
+      </div>
+      <div></div>
+        <label for="detalles">Detalles adicionales (opcional)</label>
+        <textarea id="detalles" rows="3"
+                  placeholder="Escribe tus preferencias"></textarea>
+
+        <p class="nota">* Campos obligatorios.</p>
+
+        <button type="submit">Solicitar cotización</button>
+
+    </form>
+</div>
+<script>
+    const formulario = document.getElementById("formulario");
+
+    formulario.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let nombre = document.getElementById("nombre").value;
+        let tipo = document.getElementById("tipo").value;
+        let presupuesto = document.getElementById("presupuesto").value;
+
+        let confirmar = confirm(
+            "¿Deseas confirmar tu solicitud de cotización?\n\n" +
+            "Cliente: " + nombre + "\n" +
+            "Equipo: " + tipo + "\n" +
+            "Presupuesto: S/ " + presupuesto
+        );
+
+        if (confirmar) {
+            alert("¡Solicitud de cotización confirmada!");
+            formulario.reset();
+        } else {
+            alert("Puedes revisar tus datos antes de volver a enviarlos.");
+        }
+    });
+</script>
+</body>
+</html>
+  
