@@ -3,13 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <!-- Construir un cuestinonario (5 interrogantes) -->
+  <title>Cuestionario de programación</title>
+
+  <!-- Construir un CUESTIONARIO -->
   <!-- Por cada Pregunta -->
-  <!-- 3 alternativas  -->
-  <!-- utilizar botones de desplazmineto para la navegacion -->
-  <!-- Los datos que se iran mostrando deben estar en un objeto -->
+  <!-- 3 alternativas -->
+  <!-- Utilizar los botones de desplazamiento para la navegación -->  
+  <!-- Los datos que se irán mostrando deben estar en un OBJETO --> 
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 650px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #eaf0f6;
+    }
+
+    .cuestionario {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px #b8c4d1;
+    }
+
+    h1 {
+      color: #174b78;
+      text-align: center;
+    }
+
+    #instructor, #nivel {
+      color: #555555;
+    }
+
+    .alternativa {
+      display: block;
+      padding: 12px;
+      margin: 10px 0;
+      background-color: #f1f5f9;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .alternativa:hover {
+      background-color: #dbeafe;
+    }
+
+    .alternativa input {
+      margin-right: 8px;
+    }
+
+    .botones {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+    }
+
+    button {
+      padding: 11px 20px;
+      border: none;
+      border-radius: 7px;
+      background-color: #174b78;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: #aaaaaa;
+      cursor: not-allowed;
+    }
+
+    #progreso {
+      text-align: center;
+      font-weight: bold;
+      color: #174b78;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cuestionario">
+    <h1 id="titulo"></h1>
+    <p id="instructor"></p>
+    <p id="nivel"></p>
+
+    <hr>
+
+    <h2 id="pregunta"></h2>
+    <div id="alternativas"></div>
+    <p id="progreso"></p>
+
+    <div class="botones">
+      <button id="anterior" type="button">Anterior</button>
+      <button id="siguiente" type="button">Siguiente</button>
+    </div>
+  </div>
+
+  <script>
+    const datosCuestionario = {
+      titulo: "Prueba de conocimientos informáticos",
+      instructor: "Leonel Andres Messi",
+      nivel: "Básico",
+
+      preguntas: [
+        {
+          pregunta: "¿Para qué se utiliza JavaScript?",
+          alternativas: [
+            "A. Para agregar interactividad a las páginas web",
+            "B. Para fabricar componentes físicos",
+            "C. Para reemplazar el monitor"
+          ]
+        },
+        {
+          pregunta: "¿Qué etiqueta se utiliza para crear un enlace en HTML?",
+          alternativas: [
+            "A. <p>",
+            "B. <a>",
+            "C. <h1>"
+          ]
+        },
+        {
+          pregunta: "¿Qué función cumple una variable?",
+          alternativas: [
+            "A. Almacenar información",
+            "B. Apagar la computadora",
+            "C. Cambiar el tamaño del monitor"
+          ]
+        }
+      ]
+    };
+
+    let preguntaNumero = 0;
+
+    document.getElementById("titulo").textContent =
+      datosCuestionario.titulo;
+
+    document.getElementById("instructor").textContent =
+      "Instructor: " + datosCuestionario.instructor;
+
+    document.getElementById("nivel").textContent =
+      "Dificultad: " + datosCuestionario.nivel;
+
+    function cargarPregunta() {
+      const pregunta = datosCuestionario.preguntas[preguntaNumero];
+
+      document.getElementById("pregunta").textContent =
+        pregunta.pregunta;
+
+      const listaAlternativas = document.getElementById("alternativas");
+      listaAlternativas.innerHTML = "";
+
+      pregunta.alternativas.forEach((texto) => {
+        const etiqueta = document.createElement("label");
+        const radio = document.createElement("input");
+
+        etiqueta.classList.add("alternativa");
+
+        radio.type = "radio";
+        radio.name = "opcion";
+        radio.value = texto;
+
+        etiqueta.appendChild(radio);
+        etiqueta.appendChild(document.createTextNode(texto));
+
+        listaAlternativas.appendChild(etiqueta);
+      });
+
+      document.getElementById("progreso").textContent =
+        "Pregunta " + (preguntaNumero + 1) +
+        " / " + datosCuestionario.preguntas.length;
+
+      document.getElementById("anterior").disabled =
+        preguntaNumero === 0;
+
+      document.getElementById("siguiente").disabled =
+        preguntaNumero === datosCuestionario.preguntas.length - 1;
+    }
+
+    document.getElementById("anterior").addEventListener("click", () => {
+      if (preguntaNumero > 0) {
+        preguntaNumero--;
+        cargarPregunta();
+      }
+    });
+
+    document.getElementById("siguiente").addEventListener("click", () => {
+      if (preguntaNumero < datosCuestionario.preguntas.length - 1) {
+        preguntaNumero++;
+        cargarPregunta();
+      }
+    });
+
+    cargarPregunta();
+  </script>
+
 </body>
 </html>
+```

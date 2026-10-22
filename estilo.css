@@ -1,0 +1,143 @@
+
+/* ===== ESTILOS GENERALES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.conteiner {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 30px 35px;
+    background-color: #12345a;
+    color: #ffffff;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.12);
+}
+
+.conteiner h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.conteiner p {
+    font-size: 15px;
+    color: #dbeafe;
+    line-height: 1.6;
+}
+
+/* ===== FORMULARIO ===== */
+form {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 35px;
+    background-color: #ffffff;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+}
+
+/* Espaciado entre campos */
+form > div {
+    margin-bottom: 22px;
+}
+
+/* ===== ETIQUETAS ===== */
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ===== CAMPOS DE TEXTO ===== */
+input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background-color: #ffffff;
+    color: #1e293b;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto al seleccionar un campo */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.13);
+}
+
+/* Área de detalles */
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* ===== TEXTO INFORMATIVO ===== */
+.nota {
+    margin: 22px 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* ===== BOTÓN PRINCIPAL ===== */
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    background-color: #1d4ed8;
+    color: #ffffff;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #1e40af;
+    transform: translateY(-1px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* ===== DISEÑO RESPONSIVE ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .conteiner {
+        padding: 24px 20px;
+    }
+
+    .conteiner h1 {
+        font-size: 23px;
+    }
+
+    form {
+        padding: 24px 20px;
+    }
+}
